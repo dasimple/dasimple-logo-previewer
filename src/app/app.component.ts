@@ -15,7 +15,8 @@ export class AppComponent implements OnInit {
     aSize: 128,
     aStroke: 12,
     aOffset: 64,
-    aPercentage: 50
+    aPercentage: 50,
+    showGeometry: false
   });
 
   get showMaskOfD() {
@@ -76,6 +77,10 @@ export class AppComponent implements OnInit {
 
   get centerOfMass() {
     return (this.sizeOfD / 2 * this.areaOfD + (this.offsetOfA + this.sizeOfA / 3) * this.areaOfA) / (this.areaOfD + this.areaOfA);
+  }
+
+  get showGeometry() {
+    return this.inputForm.controls.showGeometry.value;
   }
 
   constructor(

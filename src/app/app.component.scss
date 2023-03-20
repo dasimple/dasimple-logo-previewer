@@ -1,35 +1,19 @@
-.container {
-  padding: 16px;
+#canvas {
+  &.logo-with-outline {
+    outline: 1px solid #e0e0e0;
+  }
 }
 
-mat-card {
-  margin-bottom: 16px;
-}
-
-mat-checkbox.form-checkbox {
-  margin-bottom: 8px;
-}
-
-.result {
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-
-.canvas {
-  display: inline-block;
-  position: relative;
-  outline: 1px solid #e0e0e0;
-}
-
-.figure,
-.mask {
+.logo-figure,
+.logo-mask {
+  box-sizing: content-box;
   position: absolute;
 }
 
-.mass-center {
+.logo-mass-center {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   margin: -4px;
   border: 1px solid #fff;
   border-radius: 4px;
@@ -37,9 +21,9 @@ mat-checkbox.form-checkbox {
 }
 
 #common {
-  .mass-center {
-    width: 10px;
-    height: 10px;
+  .logo-mass-center {
+    width: 12px;
+    height: 12px;
     margin: -6px;
     background-color: #4caf50;
     border: 1px solid #fff;
@@ -53,7 +37,7 @@ mat-checkbox.form-checkbox {
   top: 0;
   left: 0;
 
-  .figure {
+  .logo-figure {
     top: 0;
     left: 0;
     width: calc(var(--size) - var(--stroke) * 2);
@@ -62,14 +46,16 @@ mat-checkbox.form-checkbox {
     border-top-right-radius: calc(var(--size) / 2);
     border-bottom-right-radius: calc(var(--size) / 2);
   }
-  .mask {
+
+  .logo-mask {
     top: 0;
     left: 0;
     width: var(--size);
     height: var(--size);
     background-color: rgba(#000, 0.4);
   }
-  .mass-center {
+
+  .logo-mass-center {
     top: calc(var(--size) / 2);
     left: calc(var(--size) / 2);
     background-color: #f44336;
@@ -81,7 +67,7 @@ mat-checkbox.form-checkbox {
   top: var(--offset);
   left: var(--offset);
 
-  .figure {
+  .logo-figure {
     top: 0;
     left: 0;
     width: calc(var(--size) - var(--stroke));
@@ -104,7 +90,8 @@ mat-checkbox.form-checkbox {
       background-color: #000;
     }
   }
-  .mask {
+
+  .logo-mask {
     top: 0;
     left: calc(var(--border) * -1);
     width: 0;
@@ -115,7 +102,8 @@ mat-checkbox.form-checkbox {
     border-bottom: var(--border) solid rgba(#000, 0.4);
     border-left: var(--border) solid transparent;
   }
-  .mass-center {
+
+  .logo-mass-center {
     top: calc(var(--size) / 3);
     left: calc(var(--size) / 3);
     background-color: #03a9f4;
