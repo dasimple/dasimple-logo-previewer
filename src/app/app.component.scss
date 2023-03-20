@@ -1,0 +1,123 @@
+.container {
+  padding: 16px;
+}
+
+mat-card {
+  margin-bottom: 16px;
+}
+
+mat-checkbox.form-checkbox {
+  margin-bottom: 8px;
+}
+
+.result {
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.canvas {
+  display: inline-block;
+  position: relative;
+  outline: 1px solid #e0e0e0;
+}
+
+.figure,
+.mask {
+  position: absolute;
+}
+
+.mass-center {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -4px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+#common {
+  .mass-center {
+    width: 10px;
+    height: 10px;
+    margin: -6px;
+    background-color: #4caf50;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    z-index: 1001;
+  }
+}
+
+#letter-d {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .figure {
+    top: 0;
+    left: 0;
+    width: calc(var(--size) - var(--stroke) * 2);
+    height: calc(var(--size) - var(--stroke) * 2);
+    border: var(--stroke) solid #000;
+    border-top-right-radius: calc(var(--size) / 2);
+    border-bottom-right-radius: calc(var(--size) / 2);
+  }
+  .mask {
+    top: 0;
+    left: 0;
+    width: var(--size);
+    height: var(--size);
+    background-color: rgba(#000, 0.4);
+  }
+  .mass-center {
+    top: calc(var(--size) / 2);
+    left: calc(var(--size) / 2);
+    background-color: #f44336;
+  }
+}
+
+#letter-a {
+  position: absolute;
+  top: var(--offset);
+  left: var(--offset);
+
+  .figure {
+    top: 0;
+    left: 0;
+    width: calc(var(--size) - var(--stroke));
+    height: calc(var(--size) - var(--stroke));
+    border-top: var(--stroke) solid #000;
+    border-left: var(--stroke) solid #000;
+    background-color: #fff;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: var(--bar-offset);
+      left: calc(var(--bar-offset) - var(--stroke));
+      width: var(--bar-width);
+      height: var(--stroke);
+      margin: 0 calc(var(--bar-width) / -2);
+      margin-top: calc(var(--stroke) * -1);
+      transform: rotate(-45deg);
+      transform-origin: top center;
+      background-color: #000;
+    }
+  }
+  .mask {
+    top: 0;
+    left: calc(var(--border) * -1);
+    width: 0;
+    height: 0;
+    transform: rotate(-45deg);
+    transform-origin: top center;
+    border-right: var(--border) solid transparent;
+    border-bottom: var(--border) solid rgba(#000, 0.4);
+    border-left: var(--border) solid transparent;
+  }
+  .mass-center {
+    top: calc(var(--size) / 3);
+    left: calc(var(--size) / 3);
+    background-color: #03a9f4;
+  }
+}

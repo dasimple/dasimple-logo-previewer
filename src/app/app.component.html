@@ -1,0 +1,78 @@
+<div fxFill fxLayout="column" fxLayout.gt-sm="row wrap" fxLayoutGap="16px" class="container">
+  <mat-card fxFlex.gt-sm>
+    <form [formGroup]="inputForm">
+      <h1 class="mat-h1">
+        DaSimple Logo Preview
+      </h1>
+      <h2 class="mat-h2">
+        D letter:
+      </h2>
+      <div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutAlign.gt-xs="start center" fxLayoutGap="16px">
+        <mat-checkbox formControlName="dShowMask" class="form-checkbox">
+          Show mask
+        </mat-checkbox>
+        <mat-form-field fxFlex.gt-xs="100px">
+          <mat-label>Size</mat-label>
+          <input matInput type="number" formControlName="dSize" min="1" />
+          <span matSuffix>px</span>
+        </mat-form-field>
+        <mat-form-field fxFlex.gt-xs="100px">
+          <mat-label>Stroke size</mat-label>
+          <input matInput type="number" formControlName="dStroke" min="1" />
+          <span matSuffix>px</span>
+        </mat-form-field>
+      </div>
+      <h2 class="mat-h2">
+        A letter:
+      </h2>
+      <div fxLayout="column" fxLayout.gt-xs="row wrap" fxLayoutAlign.gt-xs="start center" fxLayoutGap="16px">
+        <mat-checkbox formControlName="aShowMask" class="form-checkbox">
+          Show mask
+        </mat-checkbox>
+        <mat-form-field fxFlex.gt-xs="100px">
+          <mat-label>Size</mat-label>
+          <input matInput type="number" formControlName="aSize" min="1" />
+          <span matSuffix>px</span>
+        </mat-form-field>
+        <mat-form-field fxFlex.gt-xs="100px">
+          <mat-label>Stroke size</mat-label>
+          <input matInput type="number" formControlName="aStroke" min="1" />
+          <span matSuffix>px</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="100px" fxFlex.xs="100">
+          <mat-label>Offset from D</mat-label>
+          <input matInput type="number" formControlName="aOffset" min="0" max="100" />
+          <span matSuffix>%</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="100px" fxFlex.xs="100">
+          <mat-label>Bar position</mat-label>
+          <input matInput type="number" formControlName="aPercentage" min="0" max="100" />
+          <span matSuffix>%</span>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card>
+  <mat-card fxFlex.gt-sm>
+    <h2 class="mat-h2">Result:</h2>
+    <div class="result">
+      Canvas size: {{sizeOfCanvas}}px <br />
+      Center of mass: {{centerOfMass.toFixed(2)}}px ({{(centerOfMass / sizeOfCanvas * 100).toFixed(2)}}%) <br />
+      Letter D - size: {{sizeOfD}}px, stroke: {{strokeOfD}}px <br />
+      Letter A - size: {{sizeOfA}}px, stroke: {{strokeOfA}}px, offset: {{offsetOfA}}px
+      ({{(offsetOfA / sizeOfCanvas * 100).toFixed(2)}}%)
+    </div>
+    <div class="canvas" style.width="{{sizeOfCanvas}}px" style.height="{{sizeOfCanvas}}px">
+      <div id="common">
+        <div class="mass-center" style.top="{{centerOfMass}}px" style.left="{{centerOfMass}}px"></div>
+      </div>
+      <div id="letter-d" style.--size="{{sizeOfD}}px" style.--stroke="{{strokeOfD}}px">
+        <div [class.mask]="showMaskOfD" [class.figure]="!showMaskOfD"></div>
+        <div class="mass-center"></div>
+      </div>
+      <div id="letter-a" style.--size="{{sizeOfA}}px" style.--stroke="{{strokeOfA}}px" style.--offset="{{offsetOfA}}px">
+        <div [class.mask]="showMaskOfA" [class.figure]="!showMaskOfA" style.--bar-width="{{percentageOfA * maxBarWidthOfA}}px" style.--bar-offset="{{percentageOfA * maxBarOffsetOfA}}px" style.--border="{{heightOfA}}px"></div>
+        <div class="mass-center"></div>
+      </div>
+    </div>
+  </mat-card>
+</div>
