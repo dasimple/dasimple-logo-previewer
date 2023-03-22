@@ -1,0 +1,20 @@
+{
+  "id": "dasimple-logo",
+  "name": "DaSimple Logo Previewer",
+  "short_name": "DaSimple Logo",
+  "description": "DaSimple Logo live preview",
+  "lang": "en",
+  "orientation": "portrait",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

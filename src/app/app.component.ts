@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
     aShowMask: false,
     aSize: 128,
     aStroke: 12,
-    aOffset: 64,
-    aPercentage: 50,
+    aOffset: 50,
+    aPercentage: 75,
     showGeometry: false
   });
 

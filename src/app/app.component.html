@@ -1,7 +1,7 @@
 <button class="btn btn-primary m-3 position-absolute start-0 top-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
   Options
 </button>
-<div class="offcanvas offcanvas-start show" data-bs-backdrop="false" tabindex="-1" id="offcanvas">
+<div class="offcanvas offcanvas-start" data-bs-backdrop="false" tabindex="-1" id="offcanvas">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title">
       DaSimple Logo Preview
@@ -91,6 +91,9 @@
       <input readonly [value]="(centerOfMass / sizeOfCanvas * 100).toFixed(2)" class="form-control">
       <span class="input-group-text">%</span>
     </div>
+    <p>
+      <em>Note: This is a representation of logo letters without corner fillet or any other style changes. They are applied only in final output.</em>
+    </p>
   </div>
 </div>
 <div id="canvas" class="position-absolute start-50 top-50 translate-middle" [class.logo-with-outline]="showGeometry" style.width="{{sizeOfCanvas}}px" style.height="{{sizeOfCanvas}}px">
