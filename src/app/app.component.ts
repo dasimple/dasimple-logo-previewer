@@ -16,8 +16,12 @@ export class AppComponent implements OnInit {
     aStroke: 12,
     aOffset: 50,
     aPercentage: 75,
-    showGeometry: false
+    showGeometry: true
   });
+
+  get showGeometry() {
+    return this.inputForm.controls.showGeometry.value;
+  }
 
   get showMaskOfD() {
     return this.inputForm.controls.dShowMask.value;
@@ -44,15 +48,15 @@ export class AppComponent implements OnInit {
   }
 
   get heightOfA() {
-    return this.sizeOfA / Math.sqrt(2);
+    return this.sizeOfA / Math.SQRT2;
   }
 
   get maxBarWidthOfA() {
-    return this.heightOfA * 2 - this.strokeOfA * Math.sqrt(2)
+    return this.heightOfA * 2 - this.strokeOfA * Math.SQRT2;
   }
 
   get maxBarOffsetOfA() {
-    return this.sizeOfA / 2 + this.strokeOfA * (0.5 - 1 / Math.sqrt(2));
+    return this.sizeOfA / 2 + this.strokeOfA * (0.5 - Math.SQRT1_2);
   }
 
   get strokeOfA() {
@@ -79,8 +83,12 @@ export class AppComponent implements OnInit {
     return (this.sizeOfD / 2 * this.areaOfD + (this.offsetOfA + this.sizeOfA / 3) * this.areaOfA) / (this.areaOfD + this.areaOfA);
   }
 
-  get showGeometry() {
-    return this.inputForm.controls.showGeometry.value;
+  get outerCircleRadius() {
+    return Math.SQRT2 * Math.pow(this.offsetOfA, 2) / (2 * this.offsetOfA + this.sizeOfA) + this.sizeOfA / Math.SQRT2;
+  }
+
+  get projectedOuterCircleRadius() {
+    return this.outerCircleRadius * Math.SQRT1_2;
   }
 
   constructor(

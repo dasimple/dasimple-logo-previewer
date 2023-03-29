@@ -1,9 +1,3 @@
-#canvas {
-  &.logo-with-outline {
-    outline: 1px solid #e0e0e0;
-  }
-}
-
 .logo-figure,
 .logo-mask {
   box-sizing: content-box;
@@ -20,7 +14,40 @@
   z-index: 999;
 }
 
-#common {
+#common-geometry {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+
+  .logo-square-outline {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    outline: 1px solid #e0e0e0;
+  }
+
+  .logo-inner-circle-outline {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -50%;
+    top: 50%;
+    left: 50%;
+    outline: 1px solid #e0e0e0;
+    border-radius: 50%;
+  }
+
+  .logo-outer-circle-outline {
+    position: absolute;
+    outline: 1px solid #e0e0e0;
+    border-radius: 50%;
+  }
+
   .logo-mass-center {
     width: 12px;
     height: 12px;

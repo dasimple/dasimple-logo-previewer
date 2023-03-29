@@ -96,9 +96,12 @@
     </p>
   </div>
 </div>
-<div id="canvas" class="position-absolute start-50 top-50 translate-middle" [class.logo-with-outline]="showGeometry" style.width="{{sizeOfCanvas}}px" style.height="{{sizeOfCanvas}}px">
-  <div id="common">
-    <div *ngIf="showGeometry" class="logo-mass-center" style.top="{{centerOfMass}}px" style.left="{{centerOfMass}}px"></div>
+<div class="position-absolute start-50 top-50 translate-middle" style.width="{{sizeOfCanvas}}px" style.height="{{sizeOfCanvas}}px">
+  <div *ngIf="showGeometry" id="common-geometry">
+    <div class="logo-square-outline"></div>
+    <div class="logo-inner-circle-outline"></div>
+    <div class="logo-outer-circle-outline" style.width="{{2 * outerCircleRadius}}px" style.height="{{2 * outerCircleRadius}}px" style.margin="-{{outerCircleRadius}}px" style.top="{{projectedOuterCircleRadius}}px" style.left="{{projectedOuterCircleRadius}}px"></div>
+    <div class="logo-mass-center" style.top="{{centerOfMass}}px" style.left="{{centerOfMass}}px"></div>
   </div>
   <div id="letter-d" style.--size="{{sizeOfD}}px" style.--stroke="{{strokeOfD}}px">
     <div [class.logo-mask]="showMaskOfD" [class.logo-figure]="!showMaskOfD"></div>
